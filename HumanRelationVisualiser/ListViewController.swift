@@ -9,21 +9,23 @@
 import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-
-        @IBOutlet var tableView : UITableView!
+    
+    @IBOutlet var tableView : UITableView!
     
     var library : [NSString]!
     
+    let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         library = []
         // Do any additional setup after loading the view.
         
         library = ["1日","2日","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7","SEP 4","SEP 5","SEP 6","SEP 7","SEP 4","SEP 5","SEP 6","SEP 7","2日","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7","SEP 4","SEP 5","SEP 6","SEP 7","SEP 4","SEP 5","SEP 6","SEP 7"]
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -47,16 +49,16 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
-//        let locationTime = library[indexPath.row]
-//        
-//        //        cell.textLabel!.text = texts[indexPath.row]
-//        
-//        let formatter = NSDateFormatter()
-//        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-//        let dateString = formatter.stringFromDate(locationTime.createdAt)
+        //        let locationTime = library[indexPath.row]
+        //
+        //        //        cell.textLabel!.text = texts[indexPath.row]
+        //
+        //        let formatter = NSDateFormatter()
+        //        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        //        let dateString = formatter.stringFromDate(locationTime.createdAt)
         
         cell.textLabel!.text = library[indexPath.row] as String
-//        cell.detailTextLabel!.text = String(locationTime.startTime)+"〜"+String(locationTime.goalTime)
+        //        cell.detailTextLabel!.text = String(locationTime.startTime)+"〜"+String(locationTime.goalTime)
         return cell
         // Configure the cell...
         
@@ -67,10 +69,10 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         //        let text: String = texts[indexPath.row]
         //        print(text)
         
-//        selectedRow = indexPath.row
+        //        selectedRow = indexPath.row
         //刺された値を受け渡しながら画面遷移を行う
         // 8. SecondViewControllerへ遷移するSegueを呼び出す
-//        performSegueWithIdentifier("goKWSK",sender: nil)
+        performSegueWithIdentifier("goProf",sender: nil)
         
     }
     
@@ -81,28 +83,28 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // Segueで遷移時の処理
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "goKWSK") {
-            let secondVC: DetailRunViewController = (segue.destinationViewController as? DetailRunViewController)!
-            
-            // 11. SecondViewControllerのtextに選択した文字列を設定する
-            secondVC.selectRow = selectedRow
-            let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
-            appDelegate.selectedRowApp = selectedRow
-        }
-        
+    if (segue.identifier == "goKWSK") {
+    let secondVC: DetailRunViewController = (segue.destinationViewController as? DetailRunViewController)!
+    
+    // 11. SecondViewControllerのtextに選択した文字列を設定する
+    secondVC.selectRow = selectedRow
+    let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+    appDelegate.selectedRowApp = selectedRow
     }
-
+    
+    }
+    
     
     */
     
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
