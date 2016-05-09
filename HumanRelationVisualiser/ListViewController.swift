@@ -14,6 +14,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var library : [NSString]!
     
+    // 7. SecondViewに渡す文字列
+    var selectedRow: Int!
+    
     let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
     
     override func viewDidLoad() {
@@ -28,14 +31,57 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.dataSource = self
         
+        //        編集可能にする
+        //        navigationItem.rightBarButtonItem = editButtonItem()
+        
     }
+    
+    
+    
     override func viewDidAppear(animated: Bool) {
         // Update Table Data
-        tableView.beginUpdates()
-        tableView.insertRowsAtIndexPaths([
-            NSIndexPath(forRow: appDelegate.friendsNameArray.count-1, inSection: 0)
-            ], withRowAnimation: .Automatic)
-        tableView.endUpdates()
+        //        tableView.beginUpdates()
+        //        tableView.insertRowsAtIndexPaths([
+        //            NSIndexPath(forRow: appDelegate.friendsNameArray.count-1, inSection: 0)
+        //            ], withRowAnimation: .Automatic)
+        //        tableView.endUpdates()
+        tableView.reloadData()
+    }
+    
+    
+    //編集可能にする
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.editing = editing
+    }
+    
+    //すべてのセルを削除可能とする
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    //削除後の処理
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // 先にデータを更新する
+        //        titles.removeAtIndex(indexPath.row)
+        
+        
+        let listToBeDeleted = appDelegate.friendsNameArray[indexPath.row]
+        // トランザクションを開始してオブジェクトを削除します
+        //        try! realm.write {
+        //            //            realm.delete(cheeseBook)
+        //            self.realm.delete(listToBeDeleted)
+        //
+        //        }
+        
+        appDelegate.friendsNameArray.removeAtIndex(indexPath.row)
+        
+        // それからテーブルの更新
+        tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: indexPath.row, inSection: 0)],
+            withRowAnimation: UITableViewRowAnimation.Fade)
+        
+        //        print(locationData.count)
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,7 +127,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         //        let text: String = texts[indexPath.row]
         //        print(text)
         
-        //        selectedRow = indexPath.row
+        selectedRow = indexPath.row
         //刺された値を受け渡しながら画面遷移を行う
         // 8. SecondViewControllerへ遷移するSegueを呼び出す
         performSegueWithIdentifier("goProf",sender: nil)
@@ -89,25 +135,21 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    
-    
-    /*
-    
     // Segueで遷移時の処理
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-    if (segue.identifier == "goKWSK") {
-    let secondVC: DetailRunViewController = (segue.destinationViewController as? DetailRunViewController)!
-    
-    // 11. SecondViewControllerのtextに選択した文字列を設定する
-    secondVC.selectRow = selectedRow
-    let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
-    appDelegate.selectedRowApp = selectedRow
+        if (segue.identifier == "goProf") {
+            let secondVC: ProfileViewController = (segue.destinationViewController as? ProfileViewController)!
+            
+            // 11. SecondViewControllerのtextに選択した文字列を設定する
+//            secondVC.selectRow = selectedRow
+            
+            appDelegate.selectedRowApp = selectedRow
+        }
+        
     }
     
-    }
     
     
-    */
     
     /*
     // MARK: - Navigation
