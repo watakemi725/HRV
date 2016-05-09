@@ -22,8 +22,20 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         library = []
         // Do any additional setup after loading the view.
         
-        library = ["1日","2日","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7","SEP 4","SEP 5","SEP 6","SEP 7","SEP 4","SEP 5","SEP 6","SEP 7","2日","SEP 3","SEP 4","SEP 5","SEP 6","SEP 7","SEP 4","SEP 5","SEP 6","SEP 7","SEP 4","SEP 5","SEP 6","SEP 7"]
+        appDelegate.friendsNameArray = ["1日","SEP 7"]
         
+        tableView.delegate = self
+        
+        tableView.dataSource = self
+        
+    }
+    override func viewDidAppear(animated: Bool) {
+        // Update Table Data
+        tableView.beginUpdates()
+        tableView.insertRowsAtIndexPaths([
+            NSIndexPath(forRow: appDelegate.friendsNameArray.count-1, inSection: 0)
+            ], withRowAnimation: .Automatic)
+        tableView.endUpdates()
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,7 +52,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         //        return texts.count
-        return library.count
+        return appDelegate.friendsNameArray.count
     }
     
     
@@ -57,7 +69,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         //        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         //        let dateString = formatter.stringFromDate(locationTime.createdAt)
         
-        cell.textLabel!.text = library[indexPath.row] as String
+        cell.textLabel!.text = appDelegate.friendsNameArray[indexPath.row] as String
         //        cell.detailTextLabel!.text = String(locationTime.startTime)+"〜"+String(locationTime.goalTime)
         return cell
         // Configure the cell...

@@ -20,6 +20,7 @@
 		469E2F171CDE243C00FD509A /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E2F161CDE243C00FD509A /* EventViewController.swift */; };
 		469E2F191CDE244C00FD509A /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E2F181CDE244C00FD509A /* RecordViewController.swift */; };
 		469E2F1B1CDE246200FD509A /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E2F1A1CDE246200FD509A /* PhotoViewController.swift */; };
+		46B510F71CDF74C80017377F /* PersonAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B510F61CDF74C80017377F /* PersonAddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		469E2F161CDE243C00FD509A /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		469E2F181CDE244C00FD509A /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		469E2F1A1CDE246200FD509A /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		46B510F61CDF74C80017377F /* PersonAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonAddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,13 +113,14 @@
 			children = (
 				469E2EE21CDE20D200FD509A /* AppDelegate.swift */,
 				469E2EE41CDE20D200FD509A /* ViewController.swift */,
-				469E2EE61CDE20D300FD509A /* Main.storyboard */,
 				469E2F101CDE23DE00FD509A /* TopViewController.swift */,
 				469E2F121CDE242400FD509A /* ListViewController.swift */,
+				46B510F61CDF74C80017377F /* PersonAddViewController.swift */,
 				469E2F141CDE242E00FD509A /* ProfileViewController.swift */,
 				469E2F161CDE243C00FD509A /* EventViewController.swift */,
 				469E2F181CDE244C00FD509A /* RecordViewController.swift */,
 				469E2F1A1CDE246200FD509A /* PhotoViewController.swift */,
+				469E2EE61CDE20D300FD509A /* Main.storyboard */,
 				469E2EE91CDE20D300FD509A /* Assets.xcassets */,
 				469E2EEB1CDE20D300FD509A /* LaunchScreen.storyboard */,
 				469E2EEE1CDE20D300FD509A /* Info.plist */,
@@ -282,6 +285,7 @@
 				469E2F1B1CDE246200FD509A /* PhotoViewController.swift in Sources */,
 				469E2EE31CDE20D200FD509A /* AppDelegate.swift in Sources */,
 				469E2F171CDE243C00FD509A /* EventViewController.swift in Sources */,
+				46B510F71CDF74C80017377F /* PersonAddViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +512,7 @@
 				469E2F091CDE20D900FD509A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		469E2F0A1CDE20D900FD509A /* Build configuration list for PBXNativeTarget "HumanRelationVisualiserTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +521,7 @@
 				469E2F0C1CDE20D900FD509A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		469E2F0D1CDE20D900FD509A /* Build configuration list for PBXNativeTarget "HumanRelationVisualiserUITests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +530,7 @@
 				469E2F0F1CDE20D900FD509A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

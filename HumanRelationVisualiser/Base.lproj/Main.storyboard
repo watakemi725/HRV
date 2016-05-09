@@ -88,10 +88,10 @@
             </objects>
             <point key="canvasLocation" x="1197.5" y="309.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Person Add View Controller-->
         <scene sceneID="sCv-bi-O48">
             <objects>
-                <viewController id="h1d-Xa-9D4" sceneMemberID="viewController">
+                <viewController id="h1d-Xa-9D4" customClass="PersonAddViewController" customModule="HumanRelationVisualiser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3YO-2t-F7J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,6 +103,9 @@
                                 <state key="normal" title="決定">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="save" destination="h1d-Xa-9D4" eventType="touchUpInside" id="mEs-dd-lnN"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="zbD-ha-haP">
                                 <rect key="frame" x="20" y="176" width="335" height="30"/>
@@ -117,6 +120,9 @@
                                 <state key="normal" title="戻る">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="back" destination="h1d-Xa-9D4" eventType="touchUpInside" id="niN-fc-iIC"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="leL-er-5yW">
                                 <rect key="frame" x="140" y="117" width="94" height="21"/>
@@ -130,6 +136,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="Hkf-FL-a9l"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="textfield" destination="zbD-ha-haP" id="zN1-LD-FdS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QfL-5N-cap" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
